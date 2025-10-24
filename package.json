@@ -4,21 +4,29 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile": "hardhat compile",
+    "deploy:sepolia": "hardhat run scripts/deploy-mock-contracts.js --network sepolia",
+    "deploy:base": "hardhat run scripts/deploy-mock-contracts.js --network baseSepolia",
+    "deploy:op": "hardhat run scripts/deploy-mock-contracts.js --network opSepolia",
+    "deploy:arb": "hardhat run scripts/deploy-mock-contracts.js --network arbSepolia",
+    "deploy:all": "npm run deploy:sepolia && npm run deploy:base",
+    "verify:sepolia": "hardhat verify --network sepolia",
+    "verify:base": "hardhat verify --network baseSepolia"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "module",
   "dependencies": {
-    "@openzeppelin/contracts": "^5.4.0",
     "axios": "^1.12.2",
     "cors": "^2.8.5",
-    "dotenv": "^17.2.3",
     "express": "^5.1.0"
   },
   "devDependencies": {
     "@nomiclabs/hardhat-ethers": "^2.2.3",
+    "@openzeppelin/contracts": "^5.4.0",
+    "dotenv": "^17.2.3",
     "ethers": "^5.8.0",
     "hardhat": "^2.26.3"
   }
